@@ -20,7 +20,7 @@ setup(
     author="Roberto Haddock Lobo",
     author_email="rhlobo+stockexperiments@gmail.com",
     description="Bovespa's historical series files parser.",
-    long_description=read('README'),
+    long_description=read('README.md'),
     license="MIT",
     test_suite='bovespaparser.tests.bovespaparser_tests.TestBovespaParserFunctions',
     url='http://pypi.python.org/pypi/bovespaparser',
