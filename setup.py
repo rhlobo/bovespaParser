@@ -2,9 +2,6 @@
 # Filename: setup.py
 
 
-import distribute_setup
-distribute_setup.use_setuptools()
-
 from setuptools import setup, find_packages
 import os
 
@@ -15,7 +12,7 @@ def read(*rnames):
 
 setup(
     name="bovespaparser",
-    version="0.2",
+    version="0.3",
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     author="Roberto Haddock Lobo",
     author_email="rhlobo+stockexperiments@gmail.com",

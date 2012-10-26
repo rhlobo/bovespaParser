@@ -1,6 +1,6 @@
 bovespaParser
 =============
-#### A Python parser for BM&amp;F Bovespa Historical Series Files
+A Python parser for BM&amp;F Bovespa Historical Series Files
 
 
 ### Features:
@@ -15,6 +15,7 @@ bovespaParser
     easy_install bovespaparser
 
 ### Links:
+- [BovespaParser Annoucment Blog Post](http://how.i.drycode.it/2012/09/python-bovespa-parser.html)
 - [BovespaParser Git Repository]( https://github.com/rhlobo/bovespaParser)
 - [Documentation](http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&amp;url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp)
  (for Bovespa's Historical Series data files)

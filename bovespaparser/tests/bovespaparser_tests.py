@@ -1,10 +1,11 @@
 #!/usr/bin/python
-# Filename: bovespaparsertests.py
 
 
-import unittest, os
-from .. import bovespaparser as parser
+import unittest
+import os
 from functools import partial
+import datetime
+from .. import bovespaparser as parser
 
 
 DATAHEADER = "00COTAHIST.2012BOVESPA 20120808                                                                                                                                                                                                                      "
@@ -15,11 +16,11 @@ DATARECORD = "012012010202ABCB4       010ABC BRASIL  PN  EJ  N2   R$  0000000001
 class TestBovespaParserFunctions(unittest.TestCase):
 
     def test_parsefile_should_return_correct_number_of_records_for_default_market(self):
-        result = self._parsefile(self._getfilepath("testdata.txt"))
+        result = self.__parsefile(self.__getfilepath("testdata.txt"))
         self.assertEqual(len(result), 11)
 
     def test_parsefile_should_return_correct_number_of_records_for_custom_market(self):
-        result = self._parsefile(self._getfilepath("testdata.txt"), parser.FRACIONARIO)
+        result = self.__parsefile(self.__getfilepath("testdata.txt"), parser.FRACIONARIO)
         self.assertEqual(len(result), 6)
 
     def test_parsedata_should_ignore_header_and_footer(self):
@@ -33,30 +34,31 @@ class TestBovespaParserFunctions(unittest.TestCase):
 
     def test_parsedata_should_return_correct_default_values(self):
         func = partial(parser.parsedata)
-        self._verify_parsedata_return_values(func, ['ABCB4', '20120102', 12.21, 11.75, 12.44, 11.85, 157420100])
+        self.__verify_parsedata_return_values(func, ['ABCB4', datetime.date(2012, 01, 02), 12.21, 11.75, 12.44, 11.85, 157420100])
 
     def test_parsedata_should_only_return_desired_values(self):
         func = partial(parser.parsedata, opts=[parser.CODNEG])
-        self._verify_parsedata_return_values(func, ['ABCB4'])
+        self.__verify_parsedata_return_values(func, ['ABCB4'])
 
     def test_parsedata_should_return_desired_values_order(self):
         func = partial(parser.parsedata, opts=[parser.CODNEG, parser.NOMRES])
-        self._verify_parsedata_return_values(func, ['ABCB4', 'ABC BRASIL'])
+        self.__verify_parsedata_return_values(func, ['ABCB4', 'ABC BRASIL'])
 
-    def _verify_parsedata_return_values(self, func, values):
+    def __verify_parsedata_return_values(self, func, values):
         data = [DATAHEADER, DATARECORD, DATAFOOTER]
         result = func(data)
         self.assertEqual(len(result), 1)
         self.assertEqual(len(result[0]), len(values))
         self.assertEqual(result[0], values)
 
-    def _parsefile(self, filename, market=parser.VISTA):
+    def __parsefile(self, filename, market=parser.VISTA):
         with open(filename) as f:
             return parser.parsedata(f, [], market)
 
-    def _getfilepath(self, name):
+    def __getfilepath(self, name):
         path = os.path.split(__file__)[0]
         return os.path.join(path, name)
+
 
 if __name__ == '__main__':
     unittest.main()
