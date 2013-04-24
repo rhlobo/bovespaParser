@@ -12,7 +12,7 @@ def read(*rnames):
 
 setup(
     name="bovespaparser",
-    version="0.3",
+    version="0.4",
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     author="Roberto Haddock Lobo",
     author_email="rhlobo+stockexperiments@gmail.com",

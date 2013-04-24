@@ -34,7 +34,7 @@ class TestBovespaParserFunctions(unittest.TestCase):
 
     def test_parsedata_should_return_correct_default_values(self):
         func = partial(parser.parsedata)
-        self.__verify_parsedata_return_values(func, ['ABCB4', datetime.date(2012, 01, 02), 12.21, 11.75, 12.44, 11.85, 157420100])
+        self.__verify_parsedata_return_values(func, ['ABCB4', datetime.date(2012, 01, 02), 12.21, 11.75, 12.44, 11.85, 131800])
 
     def test_parsedata_should_only_return_desired_values(self):
         func = partial(parser.parsedata, opts=[parser.CODNEG])
