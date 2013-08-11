@@ -73,9 +73,9 @@ class CotahistImporter(object):
         dataMap = collections.defaultdict(list)
         mapping = [("open", 1), ("high", 2), ("low", 3), ("close", 4), ("volume", 5)]
 
-        for symbol, datetime, f_open, f_min, f_max, f_close, volume in bvparser.parsedata(f):
+        for symbol, datetime, openv, minv, maxv, close, volume in bvparser.parsedata(f):
             symbolData = dataMap.get(symbol)
-            symbolData.append([datetime, f_open, f_max, f_min, f_close, volume])
+            symbolData.append([datetime, openv, maxv, minv, close, volume])
 
         for symbol in dataMap.keys():
             dataMap.get(symbol).sort()
