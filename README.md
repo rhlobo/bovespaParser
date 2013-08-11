@@ -37,13 +37,13 @@ def parsedata(data, opts=[CODNEG, DATA, PREABE, PREMIN, PREMAX, PREULT, QUATOT],
 - *market* parameter: specifies the desired market data (filters out other markets)
 
 Calling the function (using the default parameters) would then return a list of records holding:
-- _symbol_ - the stock symbol (*str*)
-- _date_ - the period of the quotation tick (*datetime.datetime*)
-- _open_ - stock tick open value (*float*)
-- _min_ - stock tick min value (*float*)
-- _max_ - stock tick max value (*float*)
-- _close_ - stock tick close value (*float*)
-- _volume_ - the volume in the period (*int*)
+- **symbol** - the stock symbol (*str*)
+- **date** - the period of the quotation tick (*datetime.datetime*)
+- **open** - stock tick open value (*float*)
+- **min** - stock tick min value (*float*)
+- **max** - stock tick max value (*float*)
+- **close** - stock tick close value (*float*)
+- **volume** - the volume in the period (*int*)
 
 To find out more about the available parameter options and its meanings, refer to the official BMFBOVESPA documentation (also present on the docs directory).
 
