@@ -28,14 +28,24 @@ print result
 
 The results returned by the `parsedata` function consists of a list of lists: a list of records, where a record holds some information-data for a stock paper in a certain day (a line on the given file).
 
-The `parsedata` function accepts an `opts` parameter, which specifies what information should be retrieved for each stock paper tick. The default information retrieved, when `opts` is not passed, is:
-- symbol
-- date
-- open
-- min
-- max
-- close
-- volume
+The `parsedata` function has two optional parameters:
+```python
+def parsedata(data, opts=[CODNEG, DATA, PREABE, PREMIN, PREMAX, PREULT, QUATOT], market=VISTA):
+    # implementation ...
+```
+- *opts* parameter: specifies what information should be retrieved for each stock paper tick;
+- *market* parameter: specifies the desired market data (filters out other markets)
+
+Calling the function (using the default parameters) would then return a list of records holding:
+- *symbol* - the stock symbol (str)
+- *date* - the period of the quotation tick (datetime.datetime)
+- *open* - stock tick open value (float)
+- *min* - stock tick min value (float)
+- *max* - stock tick max value (float)
+- *close* - stock tick close value (float)
+- *volume* - the volume in the period (int)
+
+To find out more about the available parameter options and its meanings, refer to the official BMFBOVESPA documentation (also present on the docs directory).
 
 ### Links:
 - [BovespaParser Annoucment Blog Post](http://how.i.drycode.it/2012/09/python-bovespa-parser.html)
