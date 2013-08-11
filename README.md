@@ -12,19 +12,30 @@ A Python parser for BM&amp;F Bovespa Historical Series Files
     * Data fields order can be freely specified
 
 ### Installing:
-    easy_install bovespaparser
-or
     pip install bovespaparser
+There are no external dependencies.
 
 ### Usage
-´´´python
+In the sample code presented bellow, you can check out how to parse a file and print it's data out:
+```python
 import bovespaparser.bovespaparser as bvparser
 
 with open('filename', 'rU') as f:
 	result = bvparser.parsedata(f)
 
 print result
-´´´
+```
+
+The results returned by the `parsedata` function consists of a list of lists: a list of records, where a record holds some information-data for a stock paper in a certain day (a line on the given file).
+
+The `parsedata` function accepts an `opts` parameter, which specifies what information should be retrieved for each stock paper tick. The default information retrieved, when `opts` is not passed, is:
+- symbol
+- date
+- open
+- min
+- max
+- close
+- volume
 
 ### Links:
 - [BovespaParser Annoucment Blog Post](http://how.i.drycode.it/2012/09/python-bovespa-parser.html)
