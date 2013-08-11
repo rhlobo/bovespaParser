@@ -13,6 +13,18 @@ A Python parser for BM&amp;F Bovespa Historical Series Files
 
 ### Installing:
     easy_install bovespaparser
+or
+    pip install bovespaparser
+
+### Usage
+´´´python
+import bovespaparser.bovespaparser as bvparser
+
+with open('filename', 'rU') as f:
+	result = bvparser.parsedata(f)
+
+print result
+´´´
 
 ### Links:
 - [BovespaParser Annoucment Blog Post](http://how.i.drycode.it/2012/09/python-bovespa-parser.html)
