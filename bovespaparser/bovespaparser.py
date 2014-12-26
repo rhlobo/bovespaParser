@@ -13,4 +13,4 @@ def parsedata(data, opts=[CODNEG, DATA, PREABE, PREMIN, PREMAX, PREULT, QUATOT],
     return [[opt.parse(line) for opt in opts] for line in data if TIPREG.parse(line) == '01' and TPMERC.parse(line) == market]
 
 
-version = '0.4'
+version = '0.5'
