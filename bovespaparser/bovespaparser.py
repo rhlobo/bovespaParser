@@ -11,6 +11,3 @@ VISTA, EXERCICIO_OPCAO_COMPRA, EXERCICIO_OPCAO_VENDA, LEILAO, FRACIONARIO, TERMO
 
 def parsedata(data, opts=[CODNEG, DATA, PREABE, PREMIN, PREMAX, PREULT, QUATOT], market=VISTA):
     return [[opt.parse(line) for opt in opts] for line in data if TIPREG.parse(line) == '01' and TPMERC.parse(line) == market]
-
-
-version = '0.5'
