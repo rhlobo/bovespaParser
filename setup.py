@@ -11,7 +11,7 @@ def read(*rnames):
 
 
 setup(name="bovespaparser",
-      version="0.6.3",
+      version="0.6.4",
       packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
       package_data={'': ['*.md', '*.txt']},
       include_package_data=True,
