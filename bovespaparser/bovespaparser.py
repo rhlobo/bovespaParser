@@ -2,7 +2,7 @@
 # Filename: bovespaparser.py
 
 
-import parsingutils as util
+from . import parsingutils as util
 
 
 TIPREG, DATA, CODBDI, CODNEG, TPMERC, NOMRES, ESPECI, PRAZOT, MODREF, PREABE, PREMAX, PREMIN, PREMED, PREULT, PREOFC, PREOFV, TOTNEG, QUATOT, VOLTOT, PREEXE, INDOPC, DATEN, FATCOT, PTOEXE, CODISI, DISMES = [util.DataSegment(*i) for i in [(0, 2), (2, 10, util.DATE), (10, 12), (12, 24, util.RTRIM), (24, 27), (27, 39, util.RTRIM), (39, 49), (49, 52), (52, 56), (56, 69, util.MONEY), (69, 82, util.MONEY), (82, 95, util.MONEY), (95, 108, util.MONEY), (108, 121, util.MONEY), (121, 134, util.MONEY), (134, 147, util.MONEY), (147, 152, util.INT), (152, 170, util.INT), (170, 188, util.INT), (188, 201), (201, 202), (202, 210, util.DATE), (210, 217), (217, 230), (230, 242), (242, 245)]]
