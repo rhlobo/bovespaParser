@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export PROJECT_NAME='astute'
+export PROJECT_REPO="rhlobo/astute"
+
+export CURRDIR="$(pwd)"
+export PROJECT_LOCATION="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+export PYTHONPATH="${PROJECT_LOCATION}/${PROJECT_NAME}"
+
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+# IMPORTANT: For the permanent solution, add `/usr/local/lib` to `/etc/ld.so.conf` as root then run `/sbin/ldconfig` (also as root).
+
+if [[ "$VIRTUAL_ENV" == "" ]]; then
+	ACTIVATION_CMD="${HOME}/.virtualenvs/${PROJECT_NAME}/bin/activate"
+	[[ -a "${ACTIVATION_CMD}" ]] && source "${ACTIVATION_CMD}"
+fi

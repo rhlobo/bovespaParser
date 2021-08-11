@@ -7,9 +7,9 @@ A Python parser for BM&amp;F Bovespa Historical Series Files
 - Parses COTAHISTXXXX.TXT files
 - Parses data passed as string array
 - Configurable to retrieve specific data:
-    * Contains market type filters (VISTA, OPCOES, ...)
-    * Accepts configuration of desired data fields to be retrieved
-    * Data fields order can be freely specified
+  - Contains market type filters (VISTA, OPCOES, ...)
+  - Accepts configuration of desired data fields to be retrieved
+  - Data fields order can be freely specified
 
 ### Installing:
     pip install bovespaparser

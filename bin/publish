@@ -1,0 +1,11 @@
+#! /bin/bash
+
+source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.base"
+
+cd "${PROJECT_LOCATION}"
+rm -Rf ./dist
+#python setup.py sdist
+python setup.py sdist bdist_wheel
+twine check dist/* && twine upload dist/* || echo "ERROR: Check failed. Not uploading."
+cd "${CURRDIR}"
+
